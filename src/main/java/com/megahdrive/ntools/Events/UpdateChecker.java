@@ -13,12 +13,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Objects;
 
 public class UpdateChecker implements Listener {
-    private String version = "1";
+    private String version = "1.1";
     private String updateEndpoint = "https://raw.githubusercontent.com/megahdrive/ntools/main/Remote.txt";
 
     @EventHandler

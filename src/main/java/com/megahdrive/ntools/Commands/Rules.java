@@ -10,7 +10,7 @@ public class Rules implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender s, Command command, String label, String[] args) {
         if (s instanceof Player) {
-            ((Player) s).sendMessage(Component.text(
+            s.sendMessage(Component.text(
                     "                                   §3Rules\n" +
                     "§6=====================================================\n" +
                     "§o§3These rules are simplified. Please view the Discord for details.\n" +

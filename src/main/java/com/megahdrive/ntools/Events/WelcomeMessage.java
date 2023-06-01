@@ -10,8 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class WelcomeMessage implements Listener {
     @EventHandler
@@ -20,8 +20,10 @@ public class WelcomeMessage implements Listener {
         String playerName = p.getName();
         Bukkit.getScheduler().runTaskLater(JavaPlugin.getPlugin(Ntools.class), () -> {
             p.sendMessage(Component.text("§3Welcome to OpenSMP, §l" + playerName +
-                    "§r§3. It's currently " + new SimpleDateFormat("hh:mm:ss a").format(Calendar.getInstance().getTime()) + "§r§3 " +
-                    "on " + new SimpleDateFormat("mm-dd-yy").format(Calendar.getInstance().getTime())));
+                    "§r§3. The current server time is " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a"))));
+            if (!p.hasPlayedBefore()) {
+                p.sendMessage(Component.text("§3As a first-time player, you can check out our rules by running /rules."));
+            }
             p.playSound(p.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1f, 1f);
         }, 20);
     }
