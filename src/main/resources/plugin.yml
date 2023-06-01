@@ -1,0 +1,9 @@
+name: Ntools
+version: '${project.version}'
+main: com.megahdrive.ntools.Ntools
+api-version: 1.19
+
+commands:
+  rules:
+    description: Rules for the server
+    usage: /<command>
