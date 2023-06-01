@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class UpdateChecker implements Listener {
     private String version = "1";
-    private String updateEndpoint = "https://raw.githubusercontent.com/megahdrive/megahdrive/main/Remote.txt";
+    private String updateEndpoint = "https://raw.githubusercontent.com/megahdrive/ntools/main/Remote.txt";
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) throws IOException {
