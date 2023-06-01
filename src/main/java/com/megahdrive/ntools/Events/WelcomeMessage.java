@@ -10,21 +10,18 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
-import static org.bukkit.Bukkit.getServer;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class WelcomeMessage implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         String playerName = p.getName();
-        LocalTime localTime = LocalTime.now();
         Bukkit.getScheduler().runTaskLater(JavaPlugin.getPlugin(Ntools.class), () -> {
             p.sendMessage(Component.text("§3Welcome to OpenSMP, §l" + playerName +
-                    "§r§3. The current server time is §l" + localTime.format(DateTimeFormatter.ofPattern("hh:mm:ss a")) + "§r§3. " +
-                    "The current TPS is §l" + Math.round(getServer().getTPS()[0]) + "§r§3."));
+                    "§r§3. It's currently " + new SimpleDateFormat("hh:mm:ss a").format(Calendar.getInstance().getTime()) + "§r§3 " +
+                    "on " + new SimpleDateFormat("mm-dd-yy").format(Calendar.getInstance().getTime())));
             p.playSound(p.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1f, 1f);
         }, 20);
     }

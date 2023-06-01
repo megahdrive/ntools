@@ -1,5 +1,5 @@
 name: Ntools
-version: '${project.version}'
+version: '1.0'
 main: com.megahdrive.ntools.Ntools
 api-version: 1.19
 
